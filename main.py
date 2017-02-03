@@ -765,10 +765,10 @@ while running:
                 running = False  # Kill the program
 
 
-        if e.type == USEREVENT:
-            musicList.insert(0,musicList.pop())
-            mixer.music.load(musicList[-1])
-            mixer.music.play()
+        if e.type == USEREVENT: #If the music ends
+            musicList.insert(0,musicList.pop()) #Take the last item in playlist and move to front
+            mixer.music.load(musicList[-1]) #Load new muic
+            mixer.music.play() #play it
 
 
         # If the mouse is clicked down, activate the momentary variable
@@ -1557,6 +1557,8 @@ while running:
                             else:
                                 hoverTool = "Triangle"
 
+                                
+            #Draws the highlight over the selected tool
             if currentTool == "Rectangle":
                 draw.rect(screen, BUTTONCLICK, (1080, 130, 90, 55))
             elif currentTool == "Square":
@@ -2488,17 +2490,16 @@ while running:
 
             screen.blit(backDrop, (0, 0))  # Transparent background
 
-            draw.rect(screen, (255, 255, 255), (10, 0, 60, 50), 2)
+            draw.rect(screen, (255, 255, 255), (10, 0, 60, 50), 2) #Draws the boxes around region in screen
             draw.rect(screen, (255, 255, 255), (430, 0, 300, 50), 2)
             draw.rect(screen, (255, 255, 255), (1150, 0, 120, 50), 2)
             draw.rect(screen, (255, 255, 255), (1050, 150, 190, 200), 2)
-
             draw.rect(screen, (255, 255, 255), (1020, 530, 250, 130), 2)
-
             draw.rect(screen, (255, 255, 255), (1020, 660, 250, 60), 2)
-
             draw.rect(screen, (255, 255, 255), (15, 680, 500, 40), 2)
 
+                
+            #Captions
             screen.blit(ubuntuFontSmall.render("Additional Actions", True, (255, 255, 255)), (10, 50))
 
             screen.blit(ubuntuFontSmall.render("Tool categories", True, (255, 255, 255)), (430, 50))
